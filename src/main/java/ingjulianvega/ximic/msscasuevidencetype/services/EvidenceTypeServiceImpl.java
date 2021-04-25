@@ -31,7 +31,7 @@ public class EvidenceTypeServiceImpl implements EvidenceTypeService {
         log.debug("get()...");
         return EvidenceTypeList
                 .builder()
-                .genderList(evidenceTypeMapper.evidenceTypeEntityListToEvidenceTypeDtoList(evidenceTypeRepository.findAll()))
+                .genderList(evidenceTypeMapper.evidenceTypeEntityListToEvidenceTypeDtoList(evidenceTypeRepository.findAllByOrderByName()))
                 .build();
     }
 

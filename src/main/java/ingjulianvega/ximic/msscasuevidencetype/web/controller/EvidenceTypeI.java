@@ -23,7 +23,7 @@ import java.util.UUID;
 
 public interface EvidenceTypeI {
 
-    @Operation(summary = "Endpoint to get the list of evidence types", description = "Returns a list of evidence types", tags = {"evidence"})
+    @Operation(summary = "Endpoint to get the list of evidence types", description = "Returns a list of evidence types", tags = {"evidence type"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The operation was successful.", content = @Content(schema = @Schema(implementation = EvidenceTypeList.class))),
 
@@ -35,7 +35,7 @@ public interface EvidenceTypeI {
             method = RequestMethod.GET)
     ResponseEntity<EvidenceTypeList> get();
 
-    @Operation(summary = "Endpoint to get the information of a evidence type given the id", description = "Returns a evidence type", tags = {"evidence"})
+    @Operation(summary = "Endpoint to get the information of a evidence type given the id", description = "Returns a evidence type", tags = {"evidence type"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The operation was successful.", content = @Content(schema = @Schema(implementation = EvidenceTypeDto.class))),
 
@@ -47,7 +47,7 @@ public interface EvidenceTypeI {
             method = RequestMethod.GET)
     ResponseEntity<EvidenceTypeDto> getById(@Parameter(in = ParameterIn.PATH, description = "The evidence type id", required = true, schema = @Schema()) @NotNull @PathVariable("id") UUID id);
 
-    @Operation(summary = "Endpoint to create a evidence type", description = "Creates a new evidence type", tags = {"evidence"})
+    @Operation(summary = "Endpoint to create a evidence type", description = "Creates a new evidence type", tags = {"evidence type"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "The operation was successful."),
 
@@ -60,7 +60,7 @@ public interface EvidenceTypeI {
             method = RequestMethod.POST)
     ResponseEntity<Void> create(@Parameter(in = ParameterIn.DEFAULT, description = "evidence types's attributes", required = true, schema = @Schema()) @NotNull @Valid @RequestBody EvidenceType  evidenceType);
 
-    @Operation(summary = "Endpoint to update the information of a evidence types given the id", description = "Updates a evidence types", tags = {"evidence types"})
+    @Operation(summary = "Endpoint to update the information of a evidence types given the id", description = "Updates a evidence types", tags = {"evidence type"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "The operation was successful."),
 
@@ -75,7 +75,7 @@ public interface EvidenceTypeI {
                                     @Parameter(in = ParameterIn.DEFAULT, description = "evidence types's attributes", required = true, schema = @Schema()) @NotNull @Valid @RequestBody EvidenceType evidenceType);
 
 
-    @Operation(summary = "Endpoint to delete a evidence type", description = "Deletes a evidence type", tags = {"evidence"})
+    @Operation(summary = "Endpoint to delete a evidence type", description = "Deletes a evidence type", tags = {"evidence type"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "The operation was successful."),
 

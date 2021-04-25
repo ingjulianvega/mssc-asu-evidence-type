@@ -10,7 +10,7 @@
 
 	<groupId>ingjulianvega.ximic</groupId>
 	<artifactId>mssc-asu-evidence-type</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>mssc-asu-evidence-type</name>
 	<description>ASU evidence type management microservice (tipo antecedente)</description>
 	<properties>

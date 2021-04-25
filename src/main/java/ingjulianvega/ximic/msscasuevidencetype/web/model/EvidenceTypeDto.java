@@ -17,8 +17,6 @@ public class EvidenceTypeDto implements Serializable {
     static final long serialVersionUID = -6199280945876709076L;
 
     private UUID id;
-    private UUID patientId;
     private String name;
-    private String observations;
 
 }

@@ -15,9 +15,6 @@ import java.util.UUID;
 public class EvidenceType implements Serializable {
 
     static final long serialVersionUID = -7309482740220635006L;
-
-    private UUID patientId;
     private String name;
-    private String observations;
 
 }
