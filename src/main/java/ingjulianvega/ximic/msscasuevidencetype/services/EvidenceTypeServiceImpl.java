@@ -25,9 +25,9 @@ public class EvidenceTypeServiceImpl implements EvidenceTypeService {
     private final EvidenceTypeRepository evidenceTypeRepository;
     private final EvidenceTypeMapper evidenceTypeMapper;
 
-    @Cacheable(cacheNames = "evidenceTypeListCache")
+    @Cacheable(cacheNames = "evidenceTypeListCache", condition = "#usingCache == false")
     @Override
-    public EvidenceTypeList get() {
+    public EvidenceTypeList get(Boolean usingCache) {
         log.debug("get()...");
         return EvidenceTypeList
                 .builder()

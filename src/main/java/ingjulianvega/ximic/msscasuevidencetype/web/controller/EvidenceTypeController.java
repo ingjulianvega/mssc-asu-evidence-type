@@ -21,8 +21,8 @@ public class EvidenceTypeController implements EvidenceTypeI {
     private final EvidenceTypeService evidenceService;
 
     @Override
-    public ResponseEntity<EvidenceTypeList> get() {
-        return new ResponseEntity<>(evidenceService.get(), HttpStatus.OK);
+    public ResponseEntity<EvidenceTypeList> get(Boolean usingCache) {
+        return new ResponseEntity<>(evidenceService.get(usingCache), HttpStatus.OK);
     }
 
     @Override
