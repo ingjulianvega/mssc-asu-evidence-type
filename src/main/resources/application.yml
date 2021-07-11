@@ -31,15 +31,12 @@ server:
   servlet:
     context-path: /asu/v1/evidence-type
 #Logging
-logging:
-  level:
-    root: DEBUG
+#logging:
+#  level:
+#    root: DEBUG
 #Exceptions
 evidence-type:
-  success: The operation was successful.
-  prefix: 'EVIDENCE-TYPE'
-  error:
-    general: There was an unexpected error. Please try again.
+  prefix: @artifactId@
 #Eureka
 eureka:
   client:
