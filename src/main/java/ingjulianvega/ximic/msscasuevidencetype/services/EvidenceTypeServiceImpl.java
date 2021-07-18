@@ -13,6 +13,7 @@ import ingjulianvega.ximic.msscasuevidencetype.web.model.EvidenceTypeList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -41,7 +42,14 @@ public class EvidenceTypeServiceImpl implements EvidenceTypeService {
         log.debug("getById()...");
         return evidenceTypeMapper.evidenceTypeEntityToEvidenceTypeDto(
                 evidenceTypeRepository.findById(id)
-                        .orElseThrow(() -> new EvidenceTypeException(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND, "")));
+                        .orElseThrow(() -> EvidenceTypeException
+                                .builder()
+                                .httpStatus(HttpStatus.BAD_REQUEST)
+                                .apiCode(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND_API_CODE)
+                                .error(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND_ERROR)
+                                .message(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND_MESSAGE)
+                                .solution(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND_SOLUTION)
+                                .build()));
     }
 
     @Override
@@ -60,7 +68,14 @@ public class EvidenceTypeServiceImpl implements EvidenceTypeService {
     public void updateById(UUID id, EvidenceType evidence) {
         log.debug("updateById...");
         EvidenceTypeEntity evidenceEntity = evidenceTypeRepository.findById(id)
-                .orElseThrow(() -> new EvidenceTypeException(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND, ""));
+                .orElseThrow(() -> EvidenceTypeException
+                        .builder()
+                        .httpStatus(HttpStatus.BAD_REQUEST)
+                        .apiCode(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND_API_CODE)
+                        .error(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND_ERROR)
+                        .message(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND_MESSAGE)
+                        .solution(ErrorCodeMessages.EVIDENCE_TYPE_NOT_FOUND_SOLUTION)
+                        .build());
 
         evidenceEntity.setName(evidence.getName());
 
