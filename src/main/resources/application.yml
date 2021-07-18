@@ -36,7 +36,7 @@ server:
 #    root: DEBUG
 #Exceptions
 evidence-type:
-  prefix: @artifactId@
+  api: @artifactId@
 #Eureka
 eureka:
   client:
